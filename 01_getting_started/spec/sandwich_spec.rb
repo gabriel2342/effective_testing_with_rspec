@@ -1,8 +1,18 @@
+Sandwich = Struct.new(:taste, :toppings)
 
 RSpec.describe 'An Ideal Sandwich' do
+  let(:sandwich) { Sandwich.new('delicious', []) }
+
   it 'is delicious' do
-    sandwich = Sandiwch.new('delicious', [])
     taste = sandwich.taste
-    expect(taste).to_eql('delicious')
+
+    expect(taste).to eq('delicious')
+  end
+
+  it 'lets m add toppings' do
+    sandwich.toppings << 'cheese'
+    toppings = sandwich.toppings
+
+    expect(toppings).not_to be_empty
   end
 end
